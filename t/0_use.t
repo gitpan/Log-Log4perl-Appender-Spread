@@ -4,7 +4,8 @@ use Test::More tests => 2;
 use Log::Log4perl::Appender::Spread;
 
 SKIP: {
-	eval { my $ap = Log::Log4perl::Appender::Spread->new() };
+	my $ap;
+	eval { $ap = Log::Log4perl::Appender::Spread->new() };
 
 	skip "spread not running",2 if $@;
 
