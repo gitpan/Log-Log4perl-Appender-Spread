@@ -4,7 +4,7 @@ use warnings;
 use strict;
 
 use vars qw($VERSION);
-$VERSION = 0.01;
+$VERSION = 0.02;
 
 use Spread 3.17;
 
@@ -52,13 +52,15 @@ sub spread_join {
 
 sub spread_leave {
     my($self) = @_;
+ 
+    if ( !$sperrno && defined($self->{mailbox}) ) {
+        # the mailbox could be dead allready - so ignore errors, they dont make much sense anymore anyway
+        Spread::leave($self->{mailbox}, $self->{SpreadGroup});
 
-    # the mailbox could be dead allready - so ignore errors, they dont make much sense anymore anyway
-    Spread::leave($self->{mailbox}, $self->{SpreadGroup});
-    
-    if ( !defined($self->{SpreadMailbox}) ) {
-      # dont disconnect unless you connected.
-      Spread::disconnect($self->{mailbox});
+        if ( !defined($self->{SpreadMailbox}) ) {
+            # dont disconnect unless you connected.
+            Spread::disconnect($self->{mailbox});
+        }
     }
 }
 

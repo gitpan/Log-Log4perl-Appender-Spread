@@ -1,6 +1,6 @@
 --- #YAML:1.0
 name: Log-Log4perl-Appender-Spread
-version: 0.01
+version: 0.02
 author:
   - Jesper Dalberg <jesper@jdn.dk>, 2004
 abstract: Log to a spread group
@@ -11,5 +11,5 @@ requires:
 provides:
   Log::Log4perl::Appender::Spread:
     file: lib/Log/Log4perl/Appender/Spread.pm
-    version: 0.01
-generated_by: Module::Build version 0.25
+    version: 0.02
+generated_by: Module::Build version 0.25_01

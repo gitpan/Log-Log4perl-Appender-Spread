@@ -1,5 +1,5 @@
 # -*- perl -*-
-use Test::More tests => 18;
+use Test::More;
 
 use Log::Log4perl;
 use Spread;
@@ -13,6 +13,13 @@ my ( $testmailbox, $testprivategroup ) =
 			spread_name => '4803',
 			private_name => 'rtest_log'
 		       } );
+
+if ( $sperrno ) {
+        plan skip_all =>  "skipping tests, some spread problem [$sperrno]";
+}
+else {
+        plan tests => 18;
+}
 
 ok( !$sperrno, "reference spread object connected to spread" );
 

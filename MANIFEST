@@ -1,6 +1,7 @@
 Build.PL
 Makefile.PL
 MANIFEST
+CHANGES
 README
 lib/Log/Log4perl/Appender/Spread.pm
 META.yml
